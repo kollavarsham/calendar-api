@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+var app = require('../app')(), port = process.env.port || 3000;
+console.log('App is now started and listening on the port %s', port);
+app.listen(port);
