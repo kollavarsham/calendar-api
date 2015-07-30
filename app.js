@@ -1,10 +1,6 @@
 'use strict';
 
-/**
- * Module dependencies.
- */
 var debug = require('debug')('calendar:app'),
-  path = require('path'),
   express = require('express'),
   morgan = require('morgan'),
   bodyParser = require('body-parser'),
@@ -17,6 +13,11 @@ module.exports = function () {
   // Initialize express app
   debug('Initializing a new express app...');
   var app = express();
+
+  // set the environment to be development
+  if (!process.env.NODE_ENV) {
+    process.env.NODE_ENV = 'development';
+  }
 
   // Passing the request url to environment locals
   app.use(function (req, res, next) {

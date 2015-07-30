@@ -67,12 +67,18 @@ var year = {
       gregorianDate.setUTCDate(gregorianDate.getUTCDate() + 1);
     }
 
+    if (req.accepts('text')) {
+      res.send(outputText);
+      return;
+    }
+
     if (req.accepts('json')) {
       res.send(output);
       return;
     }
 
     res.type('txt').send(outputText);
+
   }
 };
 
