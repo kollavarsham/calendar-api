@@ -10,10 +10,8 @@ var debug = require('debug')('calendar:app'),
   bodyParser = require('body-parser'),
   compress = require('compression'),
   methodOverride = require('method-override'),
-  cookieParser = require('cookie-parser'),
   helmet = require('helmet'),
-  flash = require('connect-flash'),
-  consolidate = require('consolidate');
+  year = require('./year');
 
 module.exports = function () {
   // Initialize express app
@@ -37,13 +35,6 @@ module.exports = function () {
   // Showing stack errors
   app.set('showStackError', true);
 
-  // Set swig as the template engine
-  app.engine('hbs', consolidate.handlebars);
-
-  // Set views path and view engine
-  app.set('view engine', 'hbs');
-  app.set('views', __dirname + '/views');
-
   // Environment dependent middleware
   if (process.env.NODE_ENV === 'development') {
     // Enable logger (morgan)
@@ -62,12 +53,6 @@ module.exports = function () {
   app.use(bodyParser.json());
   app.use(methodOverride());
 
-  // CookieParser should be above session
-  app.use(cookieParser());
-
-  // connect flash for flash messages
-  app.use(flash());
-
   // Use helmet to secure Express headers
   app.use(helmet.xframe());
   app.use(helmet.xssFilter());
@@ -75,30 +60,16 @@ module.exports = function () {
   app.use(helmet.ienoopen());
   app.disable('x-powered-by');
 
-  // Setting the app router and static folder
-  app.use(express.static(path.resolve(__dirname + '/public')));
+  var router = express.Router();              // get an instance of the express Router
 
-  // Assume 'not found' in the error msgs is a 404. this is somewhat silly, but valid, you can do whatever you like, set properties, use instanceof etc.
-  app.use(function (err, req, res, next) {
-    // If the error object doesn't exists
-    if (!err) return next();
-
-    // Log it
-    console.error(err.stack);
-
-    // Error page
-    res.status(500).render('500', {
-      error : err.stack
-    });
+  router.get('/', function (req, res) {
+    res.json({message : 'hooray! welcome to our api!'});
   });
 
-  // Assume 404 since no middleware responded
-  app.use(function (req, res) {
-    res.status(404).render('404', {
-      url   : req.originalUrl,
-      error : 'Not Found'
-    });
-  });
+  router.get('/years/:year', year.get);
+
+  // all of our routes will be prefixed with /api
+  app.use('/api', router);
 
   // Return Express server instance
   return app;
