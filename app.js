@@ -7,6 +7,7 @@ var debug = require('debug')('calendar:app'),
   compress = require('compression'),
   methodOverride = require('method-override'),
   helmet = require('helmet'),
+  cors = require('cors'),
   yearRouter = require('./routes/year');
 
 module.exports = function () {
@@ -18,6 +19,9 @@ module.exports = function () {
   if (!process.env.NODE_ENV) {
     process.env.NODE_ENV = 'development';
   }
+
+  // Set up CORS
+  app.use(cors());
 
   // Passing the request url to environment locals
   app.use(function (req, res, next) {
