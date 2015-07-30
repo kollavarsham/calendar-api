@@ -11,7 +11,7 @@ monthRouter.route('/:month').get(validators.validateYear, validators.validateMon
   var year = parseInt(req.params.year, 10);
   var month = parseInt(req.params.month, 10);
 
-  var output = kollavarsham.getMonth(year, month - 1);
+  var output = kollavarsham.getMonth(year, month - 1, req.query.lang);
 
   if (req.accepts('text')) {
     debug('sending text output');
