@@ -7,7 +7,7 @@ var debug = require('debug')('calendar:app'),
   compress = require('compression'),
   methodOverride = require('method-override'),
   helmet = require('helmet'),
-  year = require('./year');
+  yearRouter = require('./routes/year');
 
 module.exports = function () {
   // Initialize express app
@@ -64,10 +64,10 @@ module.exports = function () {
   var router = express.Router();              // get an instance of the express Router
 
   router.get('/', function (req, res) {
-    res.json({message : 'hooray! welcome to our api!'});
+    res.json({message : 'Welcome to Kollavrsham API!!1'});
   });
 
-  router.get('/years/:year', year.get);
+  router.use('/', yearRouter);
 
   // all of our routes will be prefixed with /api
   app.use('/api', router);
