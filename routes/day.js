@@ -1,18 +1,18 @@
 'use strict';
 
-var debug = require('debug')('calendar:month'),
+var debug = require('debug')('calendar:day'),
   express = require('express'),
-  dayRouter = require('./day'),
   validators = require('../lib/validators'),
   kollavarsham = require('./../lib/kollavarsham');
 
-var monthRouter = express.Router({mergeParams : true});
+var dayRouter = express.Router({mergeParams : true});
 
-monthRouter.route('/:month').get(validators.validateYear, validators.validateMonth, function (req, res) {
+dayRouter.route('/:day').get(validators.validateYear, validators.validateMonth, validators.validateDay, function (req, res) {
   var year = parseInt(req.params.year, 10);
   var month = parseInt(req.params.month, 10);
+  var day = parseInt(req.params.day, 10);
 
-  var output = kollavarsham.getMonth(year, month - 1, req.query.lang);
+  var output = kollavarsham.getDay(year, month - 1, day, req.query.lang);
 
   if (req.accepts('text')) {
     debug('sending text output');
@@ -29,6 +29,6 @@ monthRouter.route('/:month').get(validators.validateYear, validators.validateMon
   res.type('txt').send(output.text);
 });
 
-monthRouter.use('/:month/days', dayRouter);
+dayRouter.use(':month/days', dayRouter);
 
-module.exports = monthRouter;
+module.exports = dayRouter;
