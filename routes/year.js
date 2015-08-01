@@ -1,7 +1,8 @@
 'use strict';
 
-var debug = require('debug')('calendar:year'),
+var debug = require('debug')('calendar:routes:year'),
   express = require('express'),
+  common = require('./common'),
   monthRouter = require('./month'),
   validators = require('../lib/validators'),
   kollavarsham = require('./../lib/kollavarsham');
@@ -9,23 +10,12 @@ var debug = require('debug')('calendar:year'),
 var yearRouter = express.Router();
 
 yearRouter.route('/years/:year').get(validators.validateYear, function (req, res) {
+  debug('Within the month route');
   var year = parseInt(req.params.year, 10);
 
   var output = kollavarsham.getYear(year, req.query.lang);
 
-  if (req.accepts('text')) {
-    debug('sending text output');
-    res.send(output.text);
-    return;
-  }
-
-  if (req.accepts('json')) {
-    debug('sending json output');
-    res.send(output.json);
-    return;
-  }
-
-  res.type('txt').send(output.text);
+  common.sendAppropriateResponse(req, res, output);
 });
 
 yearRouter.use('/years/:year/months', monthRouter);
