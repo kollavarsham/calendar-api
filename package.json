@@ -1,9 +1,9 @@
 {
   "name": "kollavarsham-calendar",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "kollavarsham calendar web api",
   "engines": {
-    "node": "5.4.0"
+    "node": "7.4.0"
   },
   "scripts": {
     "start": "nodemon ./bin/www",
