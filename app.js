@@ -59,10 +59,10 @@ module.exports = function () {
   app.use(methodOverride());
 
   // Use helmet to secure Express headers
-  app.use(helmet.xframe());
+  app.use(helmet.frameguard());
   app.use(helmet.xssFilter());
-  app.use(helmet.nosniff());
-  app.use(helmet.ienoopen());
+  app.use(helmet.noSniff());
+  app.use(helmet.ieNoOpen());
   app.disable('x-powered-by');
 
   var router = express.Router();              // get an instance of the express Router
