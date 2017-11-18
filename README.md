@@ -2,4 +2,13 @@
 > kollavarsham calendar web api
 
 ### Usage
+
+##### [Postman](https://www.getpostman.com/)
 Postman Collection with example invocations: https://www.getpostman.com/collections/5ef9462ea541b9de431c
+
+##### [VS Code REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+
+```plain
+GET http://localhost:3000/api/years/2017
+content-type: application/json
+```
