@@ -9,6 +9,6 @@ Postman Collection with example invocations: https://www.getpostman.com/collecti
 ##### [VS Code REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 
 ```plain
-GET http://localhost:3000/api/years/2017
+GET http://localhost:3000/api/years/2018
 content-type: application/json
 ```
