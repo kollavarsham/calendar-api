@@ -1,4 +1,5 @@
-# calendar-api [![npm](https://img.shields.io/npm/v/kollavarsham-calendar.svg)](https://www.npmjs.com/package/kollavarsham-calendar) [![David](https://img.shields.io/david/kollavarsham/calendar-api.svg)](https://david-dm.org/kollavarsham/calendar-api) [![David](https://img.shields.io/david/dev/kollavarsham/calendar-api.svg)](https://david-dm.org/kollavarsham/calendar-api#info=devDependencies&view=table)
+# calendar-api [![npm](https://img.shields.io/npm/v/kollavarsham-calendar.svg)](https://www.npmjs.com/package/kollavarsham-calendar) [![David](https://img.shields.io/david/kollavarsham/calendar-api.svg)](https://david-dm.org/kollavarsham/calendar-api) [![David](https://img.shields.io/david/dev/kollavarsham/calendar-api.svg)](https://david-dm.org/kollavarsham/calendar-api#info=devDependencies&view=table) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=kollavarsham/calendar-api)](https://dependabot.com)
+
 > kollavarsham calendar web api
 
 ### Usage
