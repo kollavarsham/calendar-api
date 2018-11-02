@@ -1,19 +1,19 @@
 'use strict';
 
-var debug = require('debug')('calendar:app'),
-  express = require('express'),
-  morgan = require('morgan'),
-  bodyParser = require('body-parser'),
-  compress = require('compression'),
-  methodOverride = require('method-override'),
-  helmet = require('helmet'),
-  cors = require('cors'),
-  yearRouter = require('./routes/year');
+const debug = require('debug')('calendar:app');
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const compress = require('compression');
+const methodOverride = require('method-override');
+const helmet = require('helmet');
+const cors = require('cors');
+const yearRouter = require('./routes/year');
 
 module.exports = function () {
   // Initialize express app
   debug('Initializing a new express app...');
-  var app = express();
+  const app = express();
 
   // set the environment to be development
   if (!process.env.NODE_ENV) {
@@ -65,7 +65,7 @@ module.exports = function () {
   app.use(helmet.ieNoOpen());
   app.disable('x-powered-by');
 
-  var router = express.Router();              // get an instance of the express Router
+  const router = express.Router();              // get an instance of the express Router
 
   router.get('/', function (req, res) {
     res.json({message : 'Welcome to Kollavrsham API!!1'});

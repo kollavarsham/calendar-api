@@ -1,6 +1,6 @@
 'use strict';
 
-var debug = require('debug')('calendar:routes:common');
+const debug = require('debug')('calendar:routes:common');
 
 module.exports = {
   sendAppropriateResponse : function (req, res, output) {
