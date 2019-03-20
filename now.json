@@ -1,6 +1,5 @@
 {
 	"version": 1,
 	"name": "kollavarsham-calendar",
-	"alias": [ "calendar-now.kollavarsham.org" ],
-	"scope": "kollavarsham"
+	"alias": [ "calendar-now.kollavarsham.org" ]
 }
