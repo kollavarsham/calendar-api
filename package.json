@@ -1,6 +1,6 @@
 {
   "name": "kollavarsham-calendar",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "kollavarsham calendar web api",
   "engines": {
     "node": "10.13.0"
