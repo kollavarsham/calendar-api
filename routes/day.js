@@ -8,7 +8,7 @@ const kollavarsham = require('./../lib/kollavarsham');
 
 const dayRouter = express.Router({mergeParams : true});
 
-dayRouter.route('/:day').get(validators.validateYear, validators.validateMonth, validators.validateDay, function (req, res) {
+dayRouter.route('/:day').get(validators.validateYear, validators.validateMonth, validators.validateDay, (req, res) => {
   debug('Within the day route');
   const year = parseInt(req.params.year, 10);
   const month = parseInt(req.params.month, 10);
