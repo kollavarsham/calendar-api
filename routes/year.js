@@ -9,7 +9,7 @@ const kollavarsham = require('./../lib/kollavarsham');
 
 const yearRouter = express.Router();
 
-yearRouter.route('/years/:year').get(validators.validateYear, function (req, res) {
+yearRouter.route('/years/:year').get(validators.validateYear, (req, res) => {
   debug('Within the month route');
   const year = parseInt(req.params.year, 10);
 
