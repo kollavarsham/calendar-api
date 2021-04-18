@@ -3,7 +3,7 @@
 const debug = require('debug')('calendar:routes:common');
 
 module.exports = {
-  sendAppropriateResponse : function (req, res, output) {
+  sendAppropriateResponse : (req, res, output) => {
     if (req.accepts('html')) {
       debug('sending html output');
       res.send(output.text.replace(/(?:\r\n|\r|\n)/g, '<br />'));
