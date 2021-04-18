@@ -10,7 +10,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const yearRouter = require('./routes/year');
 
-module.exports = function () {
+module.exports = () => {
   // Initialize express app
   debug('Initializing a new express app...');
   const app = express();
@@ -24,14 +24,14 @@ module.exports = function () {
   app.use(cors());
 
   // Passing the request url to environment locals
-  app.use(function (req, res, next) {
+  app.use((req, res, next) => {
     res.locals.url = req.protocol + '://' + req.headers.host + req.url;
     next();
   });
 
   // Should be placed before express.static
   app.use(compress({
-    filter : function (req, res) {
+    filter : (req, res) => {
       return (/json|text|javascript|css/).test(res.getHeader('Content-Type'));
     },
     level  : 9
@@ -67,7 +67,7 @@ module.exports = function () {
 
   const router = express.Router();              // get an instance of the express Router
 
-  router.get('/', function (req, res) {
+  router.get('/', (req, res) => {
     res.json({message : 'Welcome to Kollavrsham API!!1'});
   });
 
