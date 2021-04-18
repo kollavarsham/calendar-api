@@ -68,7 +68,7 @@ module.exports = () => {
   const router = express.Router();              // get an instance of the express Router
 
   router.get('/', (req, res) => {
-    res.json({message : 'Welcome to Kollavrsham API!!1'});
+    res.json({message : 'Welcome to Kollavarsham API!!1'});
   });
 
   router.use('/', yearRouter);
