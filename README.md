@@ -5,7 +5,7 @@
 ### Usage
 
 ##### [Postman](https://www.getpostman.com/)
-Postman Collection with example invocations: https://www.getpostman.com/collections/5ef9462ea541b9de431c
+Postman Collection with example invocations: https://www.getpostman.com/collections/74aedf8169fe1a44b798
 
 ##### [VS Code REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 
