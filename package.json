@@ -2,9 +2,6 @@
   "name": "kollavarsham-calendar",
   "version": "2.4.4",
   "description": "kollavarsham calendar web api",
-  "engines": {
-    "node": "10.13.0"
-  },
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
@@ -23,19 +20,19 @@
   "author": "The Kollavarsham Team",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.19.1",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
-    "debug": "^4.3.1",
-    "express": "^4.17.1",
-    "helmet": "^4.3.1",
-    "kollavarsham": "^2.2.1",
-    "lodash": "^4.17.20",
+    "debug": "^4.3.3",
+    "express": "^4.17.2",
+    "helmet": "^4.6.0",
+    "kollavarsham": "^2.2.8",
+    "lodash": "^4.17.21",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
     "sprintf-js": "^1.1.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.15"
   }
 }
